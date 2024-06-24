@@ -1,21 +1,17 @@
 document.getElementById('fetchButton').addEventListener('click', fetchIds);
 
 function fetchIds() {
-    const apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // Example API endpoint
+	const myHeaders = new Headers();
+	myHeaders.append("Cookie", "_intra_42_session_production=ce74e724222cf2f7d563e005191578ce");
 
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            const idList = document.getElementById('idList');
-            idList.innerHTML = ''; // Clear any existing list items
+	const requestOptions = {
+	  method: "GET",
+	  headers: myHeaders,
+	  redirect: "follow"
+	};
 
-            data.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `ID: ${item.id}`;
-                idList.appendChild(listItem);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+	fetch("https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-ea1f8d209fe0b6bde730011e41f792f77737f9eb5f80a428e93ed76351f8e2b4&redirect_uri=https%3A%2F%2Fsmwkbgmn.github.io%2Fsomthing42%2F&response_type=code", requestOptions)
+	  .then((response) => response.text())
+	  .then((result) => console.log(result))
+	  .catch((error) => console.error(error));
 }
