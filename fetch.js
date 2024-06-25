@@ -41,11 +41,11 @@ fetchButton.addEventListener('click', () => {
 	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 	const corsProxy = 'https://something42.herokuapp.com/proxy?url=';
 
-	// const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
 	// const fullUrl = corsProxy + apiUrl;
 	
-	const category = document.getElementById('categorySelect').value;
-	const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+	// const category = document.getElementById('categorySelect').value;
+	// const apiUrl = `https://api.intra.42.fr/v2/${category}`;
 	const fullUrl = corsProxy + encodeURIComponent(apiUrl);
 	
 	fetch(fullUrl, {
@@ -53,10 +53,10 @@ fetchButton.addEventListener('click', () => {
 			// 'Authorization': `Bearer ${accessToken}`
 			'Authorization': `Bearer 137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09`
 			}
-			})
-			.then(response => response.json())
-			.then(data => displayData(data))
-			.catch(error => console.error('Error fetching data:', error));
+		})
+		.then(response => response.json())
+		.then(data => displayData(data))
+		.catch(error => console.error('Error fetching data:', error));
 	
 	/* Origin */
  // fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
