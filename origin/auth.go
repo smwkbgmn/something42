@@ -12,7 +12,7 @@ import (
 const (
 	clientID     = "YOUR_CLIENT_ID"
 	clientSecret = "YOUR_CLIENT_SECRET"
-	redirectURI  = "http://localhost:8080/oauth/callback"
+	redirectURI  = "https://localhost:8080/oauth/callback"
 )
 
 func oauthCallbackHandler(w http.ResponseWriter, r *http.Request) {

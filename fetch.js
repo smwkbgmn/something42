@@ -3,12 +3,38 @@ const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 let accessToken = "e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243";
 
 document.getElementById('loginButton').addEventListener('click', login);
-document.getElementById('fetchButton').addEventListener('click', fetchData);
+// document.getElementById('fetchButton').addEventListener('click', fetchData);
+const categorySelect = document.getElementById('categorySelect');
+const fetchButton = document.getElementById('fetchButton');
+const dataList = document.getElementById('dataList');
 
 function login() {
     const authUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public`;
     window.location.href = authUrl;
 }
+
+fetchButton.addEventListener('click', () => {
+	const selectedCategory = categorySelect.value;
+  
+	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
+		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
+	  headers: {
+		'Authorization': 'Bearer ${accessToken}'
+	  }
+	})
+	  .then(response => response.json())
+	  .then(data => {
+		dataList.innerHTML = '';
+		data.forEach(item => {
+		  const li = document.createElement('li');
+		  li.textContent = item.user.login;
+		  dataList.appendChild(li);
+		});
+	  })
+	  .catch(error => {
+		console.error('Error:', error);
+	  });
+  });
 
 function handleCallback() {
     const hash = window.location.hash.substring(1);
@@ -21,19 +47,19 @@ function handleCallback() {
     }
 }
 
-function fetchData() {
-    const category = document.getElementById('categorySelect').value;
-    const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+// function fetchData() {
+//     const category = document.getElementById('categorySelect').value; // What is this line?
+//     const apiUrl = `https://api.intra.42.fr/v2/${category}`;
 
-    fetch(apiUrl, {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => displayData(data))
-    .catch(error => console.error('Error fetching data:', error));
-}
+//     fetch(apiUrl, {
+//         headers: {
+//             'Authorization': `Bearer ${accessToken}` // This is where we got the auth to give to the client.
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => displayData(data))
+//     .catch(error => console.error('Error fetching data:', error));
+// }
 
 function displayData(data) {
     const dataList = document.getElementById('dataList');
