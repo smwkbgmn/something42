@@ -1,20 +1,3 @@
-// import getCookie from "./cookie.js";
-
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
 const clientId = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 /*	Has issue with redirect uri and LiveServer
@@ -63,8 +46,6 @@ fetchButton.addEventListener('click', () => {
 	fetch(fullUrl, {
 		headers: {
 			// 'Authorization': `Bearer ${accessToken}`
-			// 'Content-Type': 'application/json',
-            'X-CSRFToken': getCookie("csrftoken"),
 			'Authorization': `Bearer 46cb87ad3746ec9ed3ae45cbb863324a5e3e6f1caa7bec858a1b4967717723fd`
 			}
 			})
