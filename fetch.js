@@ -38,38 +38,40 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	/* CORS bypssing */
-	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-	// const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
-	// const fullUrl = corsProxy + apiUrl;
+	const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+	const fullUrl = corsProxy + apiUrl;
 	
-	// fetch(fullUrl, {
-	// 	headers: {
-	// 		'Authorization': `Bearer ${accessToken}`
-	// 		}
-	// 		})
-	// 		.then(response => response.json())
-	// 		.then(data => displayData(data))
-	// 		.catch(error => console.error('Error fetching data:', error));
+	fetch(fullUrl, {
+		headers: {
+			// 'Authorization': `Bearer ${accessToken}`
+			'Authorization': `Bearer e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243`
+			}
+			})
+			.then(response => response.json())
+			.then(data => displayData(data))
+			.catch(error => console.error('Error fetching data:', error));
 	
 	/* Origin */
  // fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
-		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
-	  headers: {
-		'Authorization': `Bearer ${accessToken}`
-	  }
-	})
-	  .then(response => response.json())
-	  .then(data => {
-		dataList.innerHTML = '';
-		data.forEach(item => {
-		  const li = document.createElement('li');
-		  li.textContent = item.user.login;
-		  dataList.appendChild(li);
-		});
-	  })
-	  .catch(error => {
-		console.error('Error:', error);
-	  });
+	// 	fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
+	//   headers: {
+	// 	// 'Authorization': `Bearer ${accessToken}`
+	// 	'Authorization': `Bearer e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243`
+	//   }
+	// })
+	//   .then(response => response.json())
+	//   .then(data => {
+	// 	dataList.innerHTML = '';
+	// 	data.forEach(item => {
+	// 	  const li = document.createElement('li');
+	// 	  li.textContent = item.user.login;
+	// 	  dataList.appendChild(li);
+	// 	});
+	//   })
+	//   .catch(error => {
+	// 	console.error('Error:', error);
+	//   });
 
   });
 
