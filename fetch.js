@@ -38,13 +38,16 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	/* CORS bypssing */
-	const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	const corsProxy = '';
 	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
 	const fullUrl = corsProxy + apiUrl;
 	
 	fetch(fullUrl, {
 		headers: {
 			// 'Authorization': `Bearer ${accessToken}`
+			// 'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie("csrftoken"),
 			'Authorization': `Bearer 46cb87ad3746ec9ed3ae45cbb863324a5e3e6f1caa7bec858a1b4967717723fd`
 			}
 			})
