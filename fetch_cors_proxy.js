@@ -7,7 +7,7 @@ document.getElementById('loginButton').addEventListener('click', login);
 document.getElementById('fetchButton').addEventListener('click', fetchData);
 
 function login() {
-    const authUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=public`;
+    const authUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public`;
     window.location.href = authUrl;
 }
 
