@@ -1,3 +1,5 @@
+import getCookie from "./cookie.js";
+
 const clientId = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 /*	Has issue with redirect uri and LiveServer
