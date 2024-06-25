@@ -41,12 +41,12 @@ fetchButton.addEventListener('click', () => {
 	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 	const corsProxy = 'https://something42.herokuapp.com/proxy?url=';
 
-	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
-	const fullUrl = corsProxy + apiUrl;
+	// const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+	// const fullUrl = corsProxy + apiUrl;
 	
-	// const category = document.getElementById('categorySelect').value;
-	// const apiUrl = `https://api.intra.42.fr/v2/${category}`;
-	// const fullUrl = corsProxy + encodeURIComponent(apiUrl);
+	const category = document.getElementById('categorySelect').value;
+	const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+	const fullUrl = corsProxy + encodeURIComponent(apiUrl);
 	
 	fetch(fullUrl, {
 		headers: {
