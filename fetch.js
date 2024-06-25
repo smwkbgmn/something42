@@ -38,7 +38,7 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
-	
+
 		const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 		const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
 		const fullUrl = corsProxy + apiUrl;
@@ -69,7 +69,7 @@ fetchButton.addEventListener('click', () => {
 // 	  .catch(error => {
 // 		console.error('Error:', error);
 // 	  });
-//   });
+  });
 
 function handleCallback() {
     const hash = window.location.hash.substring(1);
