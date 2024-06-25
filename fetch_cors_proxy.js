@@ -29,7 +29,7 @@ function fetchData() {
 
     fetch(fullUrl, {
         headers: {
-            'Authorization': `Bearer ${accessToken}`
+            'Authorization': `Bearer 137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09`
         }
     })
     .then(response => {
