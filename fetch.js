@@ -38,8 +38,7 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	/* CORS bypssing */
-	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-	const corsProxy = '';
+	const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
 	const fullUrl = corsProxy + apiUrl;
 	
