@@ -14,6 +14,21 @@ const categorySelect = document.getElementById('categorySelect');
 const fetchButton = document.getElementById('fetchButton');
 const dataList = document.getElementById('dataList');
 
+//////////// Bypass Github-pages CORS issues ///////////////
+// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+// const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+// const fullUrl = corsProxy + apiUrl;
+
+// fetch(fullUrl, {
+//     headers: {
+//         'Authorization': `Bearer ${accessToken}`
+//     }
+// })
+// .then(response => response.json())
+// .then(data => displayData(data))
+// .catch(error => console.error('Error fetching data:', error));
+//////////////////////////////////////////////////////////////
+
 function login() {
     const authUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public`;
     window.location.href = authUrl;
@@ -23,24 +38,38 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
-		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
-	  headers: {
-		'Authorization': `Bearer ${accessToken}`
-	  }
-	})
-	  .then(response => response.json())
-	  .then(data => {
-		dataList.innerHTML = '';
-		data.forEach(item => {
-		  const li = document.createElement('li');
-		  li.textContent = item.user.login;
-		  dataList.appendChild(li);
-		});
-	  })
-	  .catch(error => {
-		console.error('Error:', error);
-	  });
-  });
+	
+		const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+		const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+		const fullUrl = corsProxy + apiUrl;
+		
+		fetch(fullUrl, {
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			}
+		})
+		.then(response => response.json())
+		.then(data => displayData(data))
+		.catch(error => console.error('Error fetching data:', error));
+
+// 		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
+// 	  headers: {
+// 		'Authorization': `Bearer ${accessToken}`
+// 	  }
+// 	})
+// 	  .then(response => response.json())
+// 	  .then(data => {
+// 		dataList.innerHTML = '';
+// 		data.forEach(item => {
+// 		  const li = document.createElement('li');
+// 		  li.textContent = item.user.login;
+// 		  dataList.appendChild(li);
+// 		});
+// 	  })
+// 	  .catch(error => {
+// 		console.error('Error:', error);
+// 	  });
+//   });
 
 function handleCallback() {
     const hash = window.location.hash.substring(1);
