@@ -6,7 +6,7 @@ const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 	42auth send us "invalid redirect url"
 	No way to test with LiveServer after login 
 */
-let accessToken = "e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243";
+let accessToken = "46cb87ad3746ec9ed3ae45cbb863324a5e3e6f1caa7bec858a1b4967717723fd";
 
 document.getElementById('loginButton').addEventListener('click', login);
 // document.getElementById('fetchButton').addEventListener('click', fetchData);
@@ -45,7 +45,7 @@ fetchButton.addEventListener('click', () => {
 	fetch(fullUrl, {
 		headers: {
 			// 'Authorization': `Bearer ${accessToken}`
-			'Authorization': `Bearer e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243`
+			'Authorization': `Bearer 46cb87ad3746ec9ed3ae45cbb863324a5e3e6f1caa7bec858a1b4967717723fd`
 			}
 			})
 			.then(response => response.json())
@@ -57,7 +57,7 @@ fetchButton.addEventListener('click', () => {
 	// 	fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
 	//   headers: {
 	// 	// 'Authorization': `Bearer ${accessToken}`
-	// 	'Authorization': `Bearer e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243`
+	// 	'Authorization': `Bearer 46cb87ad3746ec9ed3ae45cbb863324a5e3e6f1caa7bec858a1b4967717723fd`
 	//   }
 	// })
 	//   .then(response => response.json())
