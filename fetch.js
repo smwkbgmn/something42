@@ -22,7 +22,8 @@ function login() {
 fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
-	fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
+	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
+		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
 	  headers: {
 		'Authorization': `Bearer ${accessToken}`
 	  }
