@@ -37,38 +37,40 @@ function login() {
 fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
-	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
+	/* CORS bypssing */
+	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	// const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
+	// const fullUrl = corsProxy + apiUrl;
+	
+	// fetch(fullUrl, {
+	// 	headers: {
+	// 		'Authorization': `Bearer ${accessToken}`
+	// 		}
+	// 		})
+	// 		.then(response => response.json())
+	// 		.then(data => displayData(data))
+	// 		.catch(error => console.error('Error fetching data:', error));
+	
+	/* Origin */
+ // fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
+		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
+	  headers: {
+		'Authorization': `Bearer ${accessToken}`
+	  }
+	})
+	  .then(response => response.json())
+	  .then(data => {
+		dataList.innerHTML = '';
+		data.forEach(item => {
+		  const li = document.createElement('li');
+		  li.textContent = item.user.login;
+		  dataList.appendChild(li);
+		});
+	  })
+	  .catch(error => {
+		console.error('Error:', error);
+	  });
 
-		const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-		const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
-		const fullUrl = corsProxy + apiUrl;
-		
-		fetch(fullUrl, {
-			headers: {
-				'Authorization': `Bearer ${accessToken}`
-			}
-		})
-		.then(response => response.json())
-		.then(data => displayData(data))
-		.catch(error => console.error('Error fetching data:', error));
-
-// 		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
-// 	  headers: {
-// 		'Authorization': `Bearer ${accessToken}`
-// 	  }
-// 	})
-// 	  .then(response => response.json())
-// 	  .then(data => {
-// 		dataList.innerHTML = '';
-// 		data.forEach(item => {
-// 		  const li = document.createElement('li');
-// 		  li.textContent = item.user.login;
-// 		  dataList.appendChild(li);
-// 		});
-// 	  })
-// 	  .catch(error => {
-// 		console.error('Error:', error);
-// 	  });
   });
 
 function handleCallback() {
