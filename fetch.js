@@ -38,9 +38,15 @@ fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
 	/* CORS bypssing */
-	const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+	const corsProxy = 'https://your-proxy-app-name.herokuapp.com/proxy?url=';
+	
 	const apiUrl = `https://api.intra.42.fr/v2/${selectedCategory}`;
-	const fullUrl = corsProxy + apiUrl;
+	// const fullUrl = corsProxy + apiUrl;
+	
+	// const category = document.getElementById('categorySelect').value;
+	// const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+	const fullUrl = corsProxy + encodeURIComponent(apiUrl);
 	
 	fetch(fullUrl, {
 		headers: {
