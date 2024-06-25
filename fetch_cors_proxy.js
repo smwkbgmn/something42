@@ -32,10 +32,30 @@ function fetchData() {
             'Authorization': `Bearer ${accessToken}`
         }
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => displayData(data))
     .catch(error => console.error('Error fetching data:', error));
 }
+
+// function fetchData() {
+//     const category = document.getElementById('categorySelect').value;
+//     const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+//     const fullUrl = corsProxy + encodeURIComponent(apiUrl);
+
+//     fetch(fullUrl, {
+//         headers: {
+//             'Authorization': `Bearer ${accessToken}`
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => displayData(data))
+//     .catch(error => console.error('Error fetching data:', error));
+// }
 
 function displayData(data) {
     const dataList = document.getElementById('dataList');
