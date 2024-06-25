@@ -1,5 +1,11 @@
 const clientId = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
+/*	Has issue with redirect uri and LiveServer
+	After login the response from 42Auth redirect url to Github pages
+	But if we change above code with something like https://localhost:5500(liveserver)
+	42auth send us "invalid redirect url"
+	No way to test with LiveServer after login 
+*/
 let accessToken = "e35ee41075bd76a5cb87df17f82cfa8da4fe4ef870621fcee5af10bacbe4c243";
 
 document.getElementById('loginButton').addEventListener('click', login);
@@ -16,10 +22,9 @@ function login() {
 fetchButton.addEventListener('click', () => {
 	const selectedCategory = categorySelect.value;
   
-	// fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
-		fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
+	fetch(`https://api.intra.42.fr/v2/projects_users?filter[project.name]=${selectedCategory}`, {
 	  headers: {
-		'Authorization': 'Bearer ${accessToken}'
+		'Authorization': `Bearer ${accessToken}`
 	  }
 	})
 	  .then(response => response.json())
