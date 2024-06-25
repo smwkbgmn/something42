@@ -1,6 +1,6 @@
 const clientId = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
-const corsProxy = 'https://something42.herokuapp.com/proxy?url=';
+const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/proxy?url=';
 let accessToken = "137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09";
 
 document.getElementById('loginButton').addEventListener('click', login);
