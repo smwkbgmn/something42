@@ -25,7 +25,8 @@ function handleCallback() {
 
 function fetchData() {
     const category = document.getElementById('categorySelect').value;
-    const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+    // const apiUrl = `https://api.intra.42.fr/v2/${category}`;
+	const apiUrl = `api.intra.42.fr:443/v2/${category}`;
     // const fullUrl = corsProxy + encodeURIComponent(apiUrl);
 	const fullUrl = corsProxy + apiUrl;
 
