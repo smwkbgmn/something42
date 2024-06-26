@@ -1,7 +1,7 @@
 const clientId = 'u-s4t2ud-9063f4e8ff01e5b0878f85b3cc0434661267ebbee2ae65bcba9fc2a973a6584e';
 const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
-const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/proxy?url=';
-// const corsProxy = 'https://something42.herokuapp.com/proxy?url=';
+// const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/proxy?url=';
+const corsProxy = 'https://something42.herokuapp.com/proxy?url=';
 let accessToken = "ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96";
 
 document.getElementById('loginButton').addEventListener('click', login);
@@ -25,7 +25,7 @@ function handleCallback() {
 
 function fetchData() {
     const category = document.getElementById('categorySelect').value;
-    const apiUrl = `api.intra.42.fr:443/v2/${category}`;
+    const apiUrl = `https://api.intra.42.fr/v2/${category}`;
     const fullUrl = corsProxy + encodeURIComponent(apiUrl);
 
     fetch(fullUrl, {
