@@ -3,7 +3,7 @@ const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 // const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 // const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/proxy?url=';
 const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/';
-let accessToken = "ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96";
+let accessToken = "b82402c89be2564c586d8c7523928e2ea74e28a2e57628c966bf9095e5132c5";
 
 document.getElementById('loginButton').addEventListener('click', login);
 document.getElementById('fetchButton').addEventListener('click', fetchData);
@@ -33,7 +33,7 @@ function fetchData() {
 
     fetch(fullUrl, {
         headers: {
-            'Authorization': `Bearer ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96`,
+            'Authorization': `Bearer b82402c89be2564c586d8c7523928e2ea74e28a2e57628c966bf9095e5132c5`,
 			'Origin': 'https://smwkbgmn.github.io'
         }
     })
@@ -49,21 +49,6 @@ function fetchData() {
 	})
     .catch(error => console.error('Error fetching data:', error));
 }
-
-// function fetchData() {
-//     const category = document.getElementById('categorySelect').value;
-//     const apiUrl = `https://api.intra.42.fr/v2/${category}`;
-//     const fullUrl = corsProxy + encodeURIComponent(apiUrl);
-
-//     fetch(fullUrl, {
-//         headers: {
-//             'Authorization': `Bearer ${accessToken}`
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => displayData(data))
-//     .catch(error => console.error('Error fetching data:', error));
-// }
 
 function displayData(data) {
     const dataList = document.getElementById('dataList');
