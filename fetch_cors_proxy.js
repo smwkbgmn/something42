@@ -42,7 +42,10 @@ function fetchData() {
         }
         return response.json();
     })
-    .then(data => displayData(data))
+    .then(data => {
+		console.log('Received data:', data);
+		displayData(data);
+	})
     .catch(error => console.error('Error fetching data:', error));
 }
 
@@ -65,11 +68,17 @@ function displayData(data) {
     const dataList = document.getElementById('dataList');
     dataList.innerHTML = '';
 
-    data.forEach(item => {
+    if (Array.isArray(data)) {
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item.id;
+            dataList.appendChild(li);
+        });
+    } else {
         const li = document.createElement('li');
-        li.textContent = item.id;
+        li.textContent = `ID: ${data.id}, Name: ${data.name || 'N/A'}`;
         dataList.appendChild(li);
-    });
+    }
 }
 
 // Run handleCallback on page load to process the access token if redirected from the OAuth flow
