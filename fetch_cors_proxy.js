@@ -32,7 +32,8 @@ function fetchData() {
 
     fetch(fullUrl, {
         headers: {
-            'Authorization': `Bearer ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96`
+            'Authorization': `Bearer ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96`,
+			'Origin': 'https://smwkbgmn.github.io'
         }
     })
     .then(response => {
