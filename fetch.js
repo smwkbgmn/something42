@@ -6,7 +6,7 @@ const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 	42auth send us "invalid redirect url"
 	No way to test with LiveServer after login 
 */
-let accessToken = "137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09";
+let accessToken = "ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96";
 
 document.getElementById('loginButton').addEventListener('click', login);
 // document.getElementById('fetchButton').addEventListener('click', fetchData);
@@ -22,7 +22,7 @@ const dataList = document.getElementById('dataList');
 // fetch(fullUrl, {
 //     headers: {
 //         'Authorization': `Bearer ${accessToken}`
-//     }
+//     }2
 // })
 // .then(response => response.json())
 // .then(data => displayData(data))
@@ -51,7 +51,7 @@ fetchButton.addEventListener('click', () => {
 	fetch(fullUrl, {
 		headers: {
 			// 'Authorization': `Bearer ${accessToken}`
-			'Authorization': `Bearer 137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09`
+			'Authorization': `Bearer ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96`
 			}
 		})
 		.then(response => response.json())
@@ -63,7 +63,7 @@ fetchButton.addEventListener('click', () => {
 	// 	fetch(`https://api.intra.42.fr/v2/${selectedCategory}`, {
 	//   headers: {
 	// 	// 'Authorization': `Bearer ${accessToken}`
-		// 'Authorization': `Bearer 137978a6fdf670668420c4086d20d1c758ffc50a9e61c4d92c45cd15466d7b09`
+		// 'Authorization': `Bearer ce64ad4fcea7a04e24a2f06b78b6c4c755faedc3a23ba591f1d691244fe09c96`
 	//   }
 	// })
 	//   .then(response => response.json())
