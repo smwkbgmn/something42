@@ -3,14 +3,33 @@ const redirectUri = 'https://smwkbgmn.github.io/somthing42/';
 // const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 // const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/proxy?url=';
 const corsProxy = 'https://something42-d4bd81072306.herokuapp.com/';
-let accessToken = "00808be17e9c50a39d4e585ee3e5bf01afe5617b24f9fffc3fb2f877d272c156";
 
 document.getElementById('loginButton').addEventListener('click', login);
 document.getElementById('fetchButton').addEventListener('click', fetchData);
 
 function login() {
+	
     const authUrl = `https://api.intra.42.fr/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=public`;
     window.location.href = authUrl;
+
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const accessToken = urlParams.get('code');
+
+	function cleanURL() {
+		// Get the current URL
+		let currentURL = new URL(window.location.href);
+		
+		// Create a new URL with just the origin and pathname
+		let cleanURL = currentURL.origin + currentURL.pathname;
+		
+		// Use replaceState to update the URL without reloading the page
+		window.history.replaceState({}, document.title, cleanURL);
+	}
+	
+	// Call this function after you've processed the OAuth token
+	cleanURL();
+
 }
 
 function handleCallback() {
@@ -33,7 +52,7 @@ function fetchData() {
 
     fetch(fullUrl, {
         headers: {
-            'Authorization': `Bearer 00808be17e9c50a39d4e585ee3e5bf01afe5617b24f9fffc3fb2f877d272c156`,
+            'Authorization': `Bearer ${accessToken}`,
 			'Origin': 'https://smwkbgmn.github.io'
         }
     })
