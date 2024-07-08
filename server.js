@@ -13,7 +13,7 @@ const activeGames = new Map();
 
 io.on('connection', (socket) => {
 	console.log('a user connected');
-	
+
     socket.on('requestMatch', () => {
         if (waitingPlayers.length > 0) {
             const opponent = waitingPlayers.pop();
@@ -61,3 +61,5 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+//test
