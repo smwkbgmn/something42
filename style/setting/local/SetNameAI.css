@@ -1,0 +1,56 @@
+.set-div{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 100%;
+    border: none;
+    padding: 10px;
+}
+
+.set-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5%;
+
+	font-size: 200%;
+}
+
+.set-p{
+	margin-top: 2.5%;
+}
+
+.set-input{
+	border: none;
+	outline: none;
+	background-color: rgba(200, 200, 200, 0.5);
+	padding-left: 1.5%;
+}
+
+.error-p {
+	position: absolute;
+	top: 85%;
+	left: 73%;
+	transform: translate(-50%, -50%);
+
+	font-size: 120%;
+}
+
+.done-btn {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(200, 200, 200, 0);
+
+	color: white;
+	font-size: 300%;
+}
+
+.done-btn:hover {
+	color: black;
+}

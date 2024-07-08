@@ -1,0 +1,15 @@
+.start-a{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: none;
+
+	font-size: 300%;
+}
+
+.start-a:hover {
+	color: black;
+}

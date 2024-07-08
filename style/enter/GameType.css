@@ -1,0 +1,31 @@
+.tournament-a{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+
+	font-size: 300%;
+}
+
+.tournament-a:hover {
+	color: black;
+}
+
+.ai-btn{
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: none;
+
+	font-size: 300%;
+}
+
+.ai-btn:hover {
+	color: black;
+}

@@ -1,0 +1,28 @@
+.message-p {
+	position: absolute;
+	top: 45%;
+	left: 20%;
+	
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+
+	font-size: 200%;
+	white-space: nowrap;
+}
+
+.exit-a {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(200, 200, 200, 0);
+
+	color: white;
+	font-size: 300%;
+}
+
+.exit-a:hover {
+	color: black;
+}

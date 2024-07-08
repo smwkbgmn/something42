@@ -1,0 +1,55 @@
+.num-p {
+	position: absolute;
+	top: 50%;
+	left: 40%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+
+	font-size: 300%;
+}
+
+.num-dropdown {
+	position: absolute;
+	top: 50%;
+	left: 58%;
+	transform: translate(-50%, -50%);
+}
+
+.btn {
+	border: none;
+	border-radius: 0%;
+	outline: none;
+	width: 120%;
+	height: 100%;
+	font-size: 230%;
+}
+
+.dropdown-menu {
+	border-radius: 0%;
+	background-color: rgba(200, 200, 200, 0.5) !important;
+
+	font-size: 100%;
+}
+
+.dropdown-item:hover {
+	background-color: rgba(200, 200, 200, 0) !important;
+}
+
+.start-btn {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(200, 200, 200, 0);
+
+	color: white;
+	font-size: 300%;
+}
+
+.start-btn:hover {
+	color: black;
+}

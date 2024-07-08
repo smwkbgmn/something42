@@ -1,0 +1,29 @@
+@font-face {
+	font-family: 'CrayonFont';
+	src: url(../../design_src/Typo_CrayonM.ttf);
+}
+
+body {
+	font-family: 'CrayonFont', sans-serif;
+	color: white;
+	font-size: 1vw;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.game-home-img {
+	z-index: 2;
+	position: absolute;
+	top: 6%;
+	left: 4%;
+	width: 3%;
+	filter: brightness(0) invert(1);
+}
+
+.game-div {
+	position: absolute;
+	z-index: 1;
+}

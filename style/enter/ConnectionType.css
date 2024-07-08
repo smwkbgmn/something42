@@ -1,0 +1,42 @@
+.online-btn{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+
+	font-size: 300%;
+}
+
+.online-btn:hover {
+	color: transparent;
+}
+
+.online-btn:hover::after {
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	white-space: pre;
+	content: "\a로그인";
+	color: black;
+}
+
+.local-a{
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border: none;
+	background-color: none;
+
+	font-size: 300%;
+}
+
+.local-a:hover {
+	color: black;
+}
