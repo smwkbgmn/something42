@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Multiplayer</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+    <!-- Load Socket.IO client from a CDN -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+	<script src="matchmaking.js"></script>
+</head>
+<body>
+    <div id="game-container"></div>
+    <script type="module">
+        import PongGame from './Game.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roomId = urlParams.get('roomId');
+
+            if (!roomId) {
+                alert('No room ID provided. Redirecting to matchmaking.');
+                window.location.href = '/index.html';
+                return;
+            }
+
+            const gameContainer = document.getElementById('game-container');
+            const game = new PongGame();
+            
+            game.setUp();
+            game.startMultiplayerGame(roomId);
+            game.animate();
+        });
+    </script>
+</body>
+</html>
