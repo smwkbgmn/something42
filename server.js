@@ -22,7 +22,7 @@ function start() {
 				socket.join(roomId);
 				opponent.join(roomId);
 
-				console.log("room " + roomId + " has created");
+				console.log("room " + roomId + " has created");					
 
 				const game = new PongPhysic(roomId, io);
 				activeGames.set(roomId, game);
