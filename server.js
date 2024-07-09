@@ -17,7 +17,7 @@ function start() {
 		socket.on('requestMatch', () => {
 			if (waitingPlayers.length > 0) {
 				const opponent = waitingPlayers.pop();
-				const roomId = `game_${Date.now()}`;
+				const roomId = `pong_${Date.now()}`;
 				
 				socket.join(roomId);
 				opponent.join(roomId);
@@ -56,7 +56,7 @@ function start() {
 		
 		socket.on('playerMove', ({ roomId, movedY }) => {
 			const game = activeGames.get(roomId);
-			
+
 			if (game)
 				game.movePaddle(socket.id, movedY);
 		});

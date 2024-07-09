@@ -122,8 +122,8 @@ class PongPhysic {
 		Matter.Engine.update(this.engine, 1000 / 60);
 		
 		if (Math.abs(this.ball.position.x) > 7 || Math.abs(this.ball.position.y) > 5) {
-			// this.start();
-			this.finish();
+			this.start();
+			// this.finish();
 		}
 		
 		const gameState = {
@@ -138,7 +138,7 @@ class PongPhysic {
 	}
 
 	finish() {
-		clearInterval(game.gameLoop);
+		clearInterval(this.gameLoop);
 		this.io.emit('gameFinish');
 	}
 

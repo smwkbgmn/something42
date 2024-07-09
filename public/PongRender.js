@@ -51,7 +51,6 @@ export default class PongRender {
 	}
 
     updateGameObjects(lastState) {
-		console.log("receiving data", lastState);
 		if (this.socket.id == lastState.players.left) {
 			this.ball.position.set(
 				lastState.ballPosition.x,
