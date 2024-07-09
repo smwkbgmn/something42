@@ -3,10 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const findMatchButton = document.getElementById('findMatch');
     const statusDiv = document.getElementById('status');
 
-    findMatchButton.addEventListener('click', () => {
-        statusDiv.textContent = 'Searching for a match...';
-        socket.emit('requestMatch');
-    });
+	if (findMatchButton) {
+
+		findMatchButton.addEventListener('click', () => {
+			statusDiv.textContent = 'Searching for a match...';
+			socket.emit('requestMatch');
+		});
+		
+	}
 
     socket.on('waitingForOpponent', () => {
         statusDiv.textContent = 'Waiting for an opponent...';
