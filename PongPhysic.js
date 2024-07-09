@@ -109,7 +109,6 @@ class PongPhysic {
 
 				const mod = 1 + ((Math.random() - 0.5) * this.paddleRandomBounceScale); 
 				direction.y *= mod;
-				console.log(mod);
 
 				this.updateBallVelocity(direction, speed);
 			}
