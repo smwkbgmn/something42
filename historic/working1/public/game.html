@@ -21,7 +21,7 @@
 <body>
     <div id="game-container"></div>
     <script type="module">
-		import PongRender from './PongRender.js';
+		import PongGame from './Game.js';
 
 		document.addEventListener('DOMContentLoaded', () => {
 			const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +34,7 @@
 			}
 
 			const gameContainer = document.getElementById('game-container');
-			const game = new PongRender(roomId);
+			const game = new PongGame(roomId);
 			
 			// game.join(roomId);
 			// game.setUp();

@@ -1,16 +1,16 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require("socket.io");
+const GameMatter = require('./GameMatter');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const PongPhysic = require('./PongPhysic');
 const waitingPlayers = [];
 const activeGames = new Map();
 
-function start() {
+try {
 	console.log("Starting server...");
 
 	io.on('connection', (socket) => {
@@ -19,13 +19,11 @@ function start() {
 				const opponent = waitingPlayers.pop();
 				const roomId = `game_${Date.now()}`;
 				
+				GameMatter.createGame(roomId, activeGames, io);
+				const game = activeGames.get(roomId);
+
 				socket.join(roomId);
 				opponent.join(roomId);
-
-				console.log("room " + roomId + " has created");
-
-				const game = new PongPhysic(roomId, io);
-				activeGames.set(roomId, game);
 
 				io.to(roomId).emit('matchFound', { roomId });
 			} else {
@@ -48,27 +46,31 @@ function start() {
 				game.players.right = socketId;
 			}
 
+			// console.log(`Player joined room: ${roomId}`);
 			socket.join(roomId);
-
-			if (game.players.left && game.players.right)
-				game.start();
 		});
 		
 		socket.on('playerMove', ({ roomId, movedY }) => {
 			const game = activeGames.get(roomId);
-			
-			if (game)
-				game.movePaddle(socket.id, movedY);
-		});
+			if (!game) return;
 
+			const paddle = socket.id == game.players.left?
+				game.paddleLeft : game.paddleRight;
+			
+			GameMatter.movePaddle(paddle, movedY);
+			
+			// Matter.Body.setPosition(paddle, {
+			// 	x: paddle.position.x,
+			// 	y: movedY
+			// });
+		});
+		
 		socket.on('disconnect', () => {
 			// Handle disconnection, remove from waiting players if needed
-
 			const index = waitingPlayers.indexOf(socket);
-
-			if (index !== -1)
+			if (index !== -1) {
 				waitingPlayers.splice(index, 1);
-
+			}
 			// You might want to handle game cleanup here as well
 		});
 	});
@@ -81,9 +83,10 @@ function start() {
 
 	const PORT = process.env.PORT || 3000;
 	server.listen(PORT, () => {
-	    console.log(`Server running on port ${PORT}\n`);
+	    console.log(`Server running on port ${PORT}`);
 	});
+
+} catch (error) {
+	console.error("Failed to start server: ", error);
 }
 
-try { start(); }
-catch (error) { console.error("Failed to start server: ", error); }

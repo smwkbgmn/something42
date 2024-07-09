@@ -1,0 +1,7 @@
+
+> pong-multiplayer@1.0.0 start
+> node server.js 2
+
+Starting server...
+Server running on port 3000
+
