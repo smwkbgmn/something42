@@ -52,7 +52,6 @@ class PongPhysic {
 	}
 
 	setUp() {
-		console.log("setting up physics");
 		// See this issue for the colision configs on Matter
 		// https://github.com/liabru/matter-js/issues/394
 		Matter.Resolver._restingThresh = 0.001;
