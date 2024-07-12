@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         statusDiv.textContent = 'Waiting for an opponent...';
     });
 
+	socket.emit()
+
     socket.on('matchFound', ({ roomId }) => {
         statusDiv.textContent = 'Match found! Starting game...';
         window.location.href = `/game.html?roomId=${roomId}`;

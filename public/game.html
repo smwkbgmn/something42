@@ -6,17 +6,15 @@
     <title>Pong Multiplayer</title>
     <style>
         body {
-			margin: 0;
-			overflow: hidden;
-			background-color: rgba(58, 58, 58, 0.316);
-		}
+            margin: 0;
+            overflow: hidden;
+            background-color: rgba(58, 58, 58, 0.316);
+        }
         canvas { display: block; }
     </style>
-    <!-- Load Socket.IO client from a CDN -->
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
-	<script src="matchmaking.js"></script>
 </head>
 <body>
     <div id="game-container"></div>
@@ -36,6 +34,6 @@
 			const gameContainer = document.getElementById('game-container');
 			const game = new PongRender(roomId);
 		});
-	</script>
+    </script>
 </body>
 </html>

@@ -74,7 +74,6 @@ function start() {
 	});
 
 	app.use(express.static('public'));
-
 	app.get('/game', (req, res) => {
 	    res.sendFile(path.join(__dirname, 'public', 'game.html'));
 	});
